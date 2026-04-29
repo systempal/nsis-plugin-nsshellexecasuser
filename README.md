@@ -1,10 +1,10 @@
 # nsShellExecAsUser NSIS Plugin
 
-**Versione personale modificata**
+**Personal modified version**
 
 ---
 
-## Descrizione Originale
+## Original Description
 
 **ShellExecAsUser plug-in**
 
@@ -65,48 +65,52 @@ There is no wrapper macros file for this plugin. Call the plugin directly as sho
 
 ---
 
-## ⚠️ Differenze nella versione personale
+## ⚠️ Differences in the Personal Version
 
-### Architetture supportate
+### Supported Architectures
 
-Il progetto supporta le configurazioni già presenti nell'originale:
+The project supports all configurations:
 - **amd64-unicode** (x64)
 - **x86-ansi**
 - **x86-unicode**
 
-### Progetto Visual Studio
+### Visual Studio Project
 
-Il progetto è stato aggiornato e riorganizzato:
-- `Contrib/ShellExecAsUser/ShellExecAsUser.sln` - Solution VS2022
-- `Contrib/ShellExecAsUser/ShellExecAsUser.vcxproj` - Progetto VS2022 aggiornato
+The project has been updated and reorganized:
+- `Contrib/ShellExecAsUser/ShellExecAsUser.sln` - VS2022 Solution
+- `Contrib/ShellExecAsUser/ShellExecAsUser.vcxproj` - Updated VS2022 Project
 
-### File aggiunti
+### Added Files
 
-- `build_plugin.py` - Script Python per compilare il plugin per tutte le architetture supportate.
-- `nsis/` - Header NSIS inclusi per facilitare la compilazione.
+- `build_plugin.py` - Python script to compile the plugin for all supported architectures.
+- `nsis/` - NSIS headers included to facilitate compilation.
 
-### Modifiche al Codice
+### Code Changes
 
-- **Rimozione Warning Deprecazione**: Sostituita la chiamata deprecata `GetVersionEx` in `VistaTools.cxx` con la moderna API `VerifyVersionInfo` per evitare warning C4996 durante la compilazione con i toolset moderni.
-- **Aggiornamento Build**: Configurazione aggiornata per utilizzare il toolset **v143** (Visual Studio 2022).
+- **Deprecation Warning Removal**: Replaced the deprecated `GetVersionEx` call in `VistaTools.cxx` with the modern `VerifyVersionInfo` API to avoid C4996 warnings when compiling with modern toolsets.
+- **Build Update**: Configuration updated to use the **v143** toolset (Visual Studio 2022).
 
-### Compilazione
+### Build
 
 ```cmd
 cd nsShellExecAsUser
 python build_plugin.py
 ```
 
-I DLL vengono copiati in `plugins/{platform}/ShellExecAsUser.dll`.
+DLLs are copied to `plugins/{platform}/ShellExecAsUser.dll`.
 
-### Opzioni build
+### Build Options
 
 ```powershell
-python build_plugin.py --config x86-unicode      # Solo un'architettura (x86-ansi|x86-unicode|amd64-unicode|all)
-python build_plugin.py --toolset 2026            # Toolset specifico (2022|2026|auto)
-python build_plugin.py --jobs 4                  # Numero di job MSBuild paralleli (default: CPU count)
-python build_plugin.py --clean                   # Pulizia dist/ prima della build
-python build_plugin.py --install-dir "C:\NSIS\Plugins"  # Copia in directory NSIS aggiuntiva
-python build_plugin.py --verbose                 # Output MSBuild esteso
-python build_plugin.py --version                 # Stampa versione ed esce
+python build_plugin.py --config x86-unicode      # Single architecture (x86-ansi|x86-unicode|amd64-unicode|all)
+python build_plugin.py --toolset 2026            # Specific toolset (2022|2026|auto)
+python build_plugin.py --jobs 4                  # Number of parallel MSBuild jobs (default: CPU count)
+python build_plugin.py --clean                   # Clean dist/ before build
+python build_plugin.py --install-dir "C:\NSIS\Plugins"  # Copy to additional NSIS directory
+python build_plugin.py --verbose                 # Extended MSBuild output
+python build_plugin.py --version                 # Print version and exit
 ```
+
+---
+
+*See [README_IT.md](README_IT.md) for the Italian version.*
