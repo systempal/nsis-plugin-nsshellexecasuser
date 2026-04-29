@@ -98,3 +98,15 @@ python build_plugin.py
 ```
 
 I DLL vengono copiati in `plugins/{platform}/ShellExecAsUser.dll`.
+
+### Opzioni build
+
+```powershell
+python build_plugin.py --config x86-unicode      # Solo un'architettura (x86-ansi|x86-unicode|amd64-unicode|all)
+python build_plugin.py --toolset 2026            # Toolset specifico (2022|2026|auto)
+python build_plugin.py --jobs 4                  # Numero di job MSBuild paralleli (default: CPU count)
+python build_plugin.py --clean                   # Pulizia dist/ prima della build
+python build_plugin.py --install-dir "C:\NSIS\Plugins"  # Copia in directory NSIS aggiuntiva
+python build_plugin.py --verbose                 # Output MSBuild esteso
+python build_plugin.py --version                 # Stampa versione ed esce
+```
