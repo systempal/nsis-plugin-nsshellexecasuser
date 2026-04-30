@@ -101,8 +101,8 @@ class Spinner:
         pass
 
     def _spin(self):
-        idx     = 0
-        _block  = '\u28ff'
+        idx    = 0
+        _block = '\u28ff'
         while self.running:
             elapsed     = time.time() - self.start_time
             n_blocks    = int(elapsed // 2)
@@ -144,9 +144,9 @@ class BuildConfig:
 
 
 CONFIGS = {
-    'x86-ansi':    BuildConfig('x86-ansi',    'Release',         'Win32', 'x86-ansi'),
-    'x86-unicode': BuildConfig('x86-unicode',  'Release Unicode', 'Win32', 'x86-unicode'),
-    'x64-unicode': BuildConfig('x64-unicode',  'Release Unicode', 'x64',   'amd64-unicode'),
+    'x86-ansi':    BuildConfig('x86-ansi',    'Release',        'Win32', 'x86-ansi'),
+    'x86-unicode': BuildConfig('x86-unicode',  'ReleaseUnicode', 'Win32', 'x86-unicode'),
+    'x64-unicode': BuildConfig('x64-unicode',  'ReleaseUnicode', 'x64',   'amd64-unicode'),
 }
 
 DLL_NAME     = 'ShellExecAsUser.dll'
